@@ -1,0 +1,87 @@
+{
+  "name": "mixspa-vue",
+  "version": "0.1.0",
+  "description": "Mixspa vue",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">= 6"
+  },
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "babel": "babel src --out-dir lib --copy-files",
+    "babel:watch": "watch 'yarn babel' ./src",
+    "build": "yarn clean && yarn babel",
+    "lint": "eslint src",
+    "test": "jest --coverage --config config/jest.config.js",
+    "test:watch": "watch 'yarn test' ./src",
+    "start": "webpack-dev-server --config config/webpack.config.js --open"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@mixspa/core": "^0.5.0",
+    "classnames": "^2.2.6",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "@mixspa/core": "^0.5.0",
+    "@vue/cli-plugin-babel": "^3.9.2",
+    "@vue/cli-plugin-eslint": "^3.9.2",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "autoprefixer": "^9.4.9",
+    "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "classnames": "^2.2.6",
+    "css-loader": "^3.0.0",
+    "eslint": "^5.15.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.1.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.10.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.6.0",
+    "precss": "^4.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue": "^2.6.10",
+    "vue-jest": "^3.0.4",
+    "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.7",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "watch": "^1.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixspa/mixspa-vue.git"
+  },
+  "keywords": [
+    "vue",
+    "mixspa"
+  ],
+  "author": "",
+  "contributors": [
+    "Xiaoqi Cao"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixspa/mixspa-vue/issues"
+  },
+  "homepage": "https://github.com/mixspa/mixspa-vue#readme"
+}

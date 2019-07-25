@@ -1,0 +1,30 @@
+{
+  parser: "babel-eslint",
+  extends: [
+    "eslint:recommended",
+    "plugin:jest/recommended"
+  ],
+  env: {
+    es6: true,
+    node: true,
+    jest: true,
+    browser: true
+  },
+  parserOptions: {
+    ecmaVersion: 7,
+    ecmaFeatures: {},
+    sourceType: "module"
+  },
+  plugins: [
+    "jest"
+  ],
+  settings: {
+    react: {
+      version: "16.5"
+    }
+  },
+  rules: {
+    indent: ["error", 2],
+    no-empty-pattern: 0
+  }
+}
