@@ -30,7 +30,7 @@
 </style>
 
 <script>
-import AppLink from '../src/AppLink.vue';
+import AppLink from '../src/AppLink';
 export default {
   props: ['baseUrl'],
   components: {

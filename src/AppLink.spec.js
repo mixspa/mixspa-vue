@@ -1,6 +1,6 @@
 import Mixspa from '@mixspa/core';
 import { shallowMount } from '@vue/test-utils';
-import AppLink from './AppLink.vue';
+import AppLink from './AppLink';
 
 describe('AppLink.vue', () => {
   beforeEach(() => {
