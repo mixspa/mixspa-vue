@@ -1,16 +1,19 @@
-import Mixspa from '@mixspa/core';
+import MixspaLink from '@mixspa/core/lib/link';
 
 export default {
-  props: ['base', 'to'],
+  props: {
+    to: {
+      type: String,
+      required: true
+    },
+  },
   methods: {
-    onClick(event) {
-      event.preventDefault();
-      Mixspa.emitLink(this.base + this.to);
+    onClick(e) {
+      e.preventDefault();
+      MixspaLink.emitLink(e.target.getAttribute('href'));
     }
   },
-  render(createElement) {
-    let attrs = { href: 'javascript:void' };
-    let on = { click: this.onClick };
-    return createElement('a', { attrs, on }, this.$slots.default);
+  render(h) {
+    return h('a', { attrs: { href: this.to }, on: { click: this.onClick } }, this.$slots.default);
   }
 }

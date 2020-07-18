@@ -6,6 +6,7 @@ module.exports = {
   testPathIgnorePatterns: [
     '<rootDir>/src/index.js'
   ],
+  setupFilesAfterEnv: ['<rootDir>/config/__init__/setupTests.js'],
   coverageDirectory: '<rootDir>/coverage',
   coverageReporters: ['html'],
   collectCoverageFrom: [

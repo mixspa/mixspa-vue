@@ -2,12 +2,13 @@
   parser: "babel-eslint",
   extends: [
     "eslint:recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:testing-library/recommended"
   ],
   env: {
     es6: true,
     node: true,
-    jest: true,
+    "jest/globals": true,
     browser: true
   },
   parserOptions: {
@@ -16,12 +17,10 @@
     sourceType: "module"
   },
   plugins: [
-    "jest"
+    "jest",
+    "testing-library"
   ],
   settings: {
-    react: {
-      version: "16.5"
-    }
   },
   rules: {
     indent: ["error", 2],

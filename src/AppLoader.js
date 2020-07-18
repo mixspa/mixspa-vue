@@ -1,12 +1,12 @@
-import Mixspa from '@mixspa/core';
+import MixspaContext from '@mixspa/core/lib/context';
 
 export default {
   props: ['appId', 'appProps'],
   data() {
     return {
-      appTag: '',
-      isError: false,
+      appInfo: {},
       isLoading: true,
+      isSuccess: false,
     };
   },
   created() {
@@ -22,28 +22,29 @@ export default {
   },
   methods: {
     reset() {
-      this.isError = false;
+      this.appInfo = {};
       this.isLoading = true;
-      this.appTag = '';
+      this.isSuccess = false;
     },
     loadApp() {
-      Mixspa.load(this.appId).then(appInfo => {
-        this.isError = false;
+      let app = MixspaContext.getApp(this.appId);
+      app.load().then(appInfo => {
+        this.appInfo = appInfo;
         this.isLoading = false;
-        this.appTag = appInfo.tag;
+        this.isSuccess = true;
       }).catch(() => {
-        this.isError = true;
         this.isLoading = false;
+        this.isSuccess = false;
       });
     }
   },
-  render(createElement) {
-    if (this.isError) {
-      return createElement('div', this.$slots.fallback);
+  render(h) {
+    if (this.isSuccess) {
+      return h('div', { attrs: { id: this.appId } }, [h(this.appInfo.tag, { attrs: this.appProps })]);
     } else if (this.isLoading) {
-      return createElement('div', this.$slots.loading);
+      return h('div', { attrs: { id: this.appId } }, this.$slots.loading);
     } else {
-      return createElement('div', [createElement(this.appTag, { attrs: this.appProps })]);
+      return h('div', { attrs: { id: this.appId } }, this.$slots.fallback);
     }
   }
 };

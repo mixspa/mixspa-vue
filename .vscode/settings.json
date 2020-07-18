@@ -1,0 +1,4 @@
+{
+    "jest.pathToConfig": "config/jest.config.js",
+    "jest.pathToJest": "node_modules/.bin/jest"
+}

@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.app">
     <div :class="$style.nav">
-      <app-link :base="baseUrl" to="/">Home</app-link> |
-      <app-link :base="baseUrl" to="/app-one">App One</app-link> |
-      <app-link :base="baseUrl" to="/app-two">App Two</app-link>
+      <app-link to="/">Home</app-link> |
+      <app-link to="/app-one">App One</app-link> |
+      <app-link to="/app-two">App Two</app-link>
     </div>
     <router-view/>
   </div>

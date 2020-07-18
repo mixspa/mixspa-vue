@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
     working_directory: ~/mixspa-react
     steps:
       - checkout
@@ -25,7 +25,7 @@ jobs:
             - lib
   test:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
     working_directory: ~/mixspa-react
     steps:
       - checkout
@@ -45,7 +45,7 @@ jobs:
           command: yarn test
   release:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
     working_directory: ~/mixspa-react
     steps:
       - checkout
@@ -58,7 +58,7 @@ jobs:
           command: bash ./ci/release.sh
   publish:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
     working_directory: ~/mixspa-react
     steps:
       - checkout

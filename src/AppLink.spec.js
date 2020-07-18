@@ -1,24 +1,23 @@
-import Mixspa from '@mixspa/core';
-import { shallowMount } from '@vue/test-utils';
+import MixspaLink from '@mixspa/core/lib/link';
+import { render, fireEvent } from '@testing-library/vue'
 import AppLink from './AppLink';
 
 describe('AppLink.vue', () => {
+  let props = { "data-testid": "test", to: "http://www.test.com/test" };
+
   beforeEach(() => {
-    Mixspa.emitLink = jest.fn();
+    MixspaLink.emitLink = jest.fn();
   });
 
-  it('should render app link with a link', () => {
-    const wrapper = shallowMount(AppLink, {
-      propsData: { base: '', to: '/to' }
-    });
-    expect(wrapper.findAll('a')).toHaveLength(1);
+  it('should render link', () => {
+    const { getByTestId } = render(AppLink, { props: props, slots: { default: 'Go' } });
+    expect(getByTestId('test')).toHaveTextContent('Go');
+    expect(getByTestId('test')).toHaveAttribute('href', 'http://www.test.com/test');
   });
 
-  it('should emit link event when click app link', () => {
-    const wrapper = shallowMount(AppLink, {
-      propsData: { base: '', to: '/to' }
-    });
-    wrapper.trigger('click');
-    expect(Mixspa.emitLink).toHaveBeenCalledWith('/to');
+  it('should go to test url when click event', () => {
+    const { getByTestId } = render(AppLink, { props: props, slots: { default: 'Go' } });
+    fireEvent.click(getByTestId('test'));
+    expect(MixspaLink.emitLink).toHaveBeenCalledWith('http://www.test.com/test');
   });
 })

@@ -1,8 +1,8 @@
-import '@babel/polyfill';
 import Vue from 'vue';
 import Mixspa from '@mixspa/core';
 import App from './App.vue';
-import router from './router'
+import router from './router';
+import { mixin } from '../src/';
 
 Mixspa.register({
   "id": "vue-app-one",
@@ -16,12 +16,7 @@ Mixspa.register({
 });
 
 new Vue({
+  mixins: [mixin],
   router: router(''),
-  mounted() {
-    Mixspa.onLink((url) => {
-      console.log('linked to: ' + url);
-      this.$router.push(url);
-    });
-  },
   render: h => h(App, { props: { baseUrl: '' } })
 }).$mount('#app');

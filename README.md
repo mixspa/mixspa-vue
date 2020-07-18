@@ -28,6 +28,20 @@ createApp('vue-app', ({ baseurl }) => {
 });
 ```
 
+### mixin: Receive event and handle url change event.
+
+```js
+import { mixin } from '@mixspa/vue';
+import App from './App';
+import router from './router';
+
+new Vue({
+  mixins: [mixin],
+  router: router,
+  render: h => h(App, { props: { baseUrl: '' } })
+}).$mount('#app');
+```
+
 ### AppLoader: load a mixspa app.
 
 ```vue
@@ -50,9 +64,9 @@ export default {
 
 ### AppLink: This link will send a event to event bus.
 
-```js
+```vue
 <template>
-  <app-link :base="baseUrl" to="/vue-app">Vue App</app-link>
+  <app-link to="/vue-app">Vue App</app-link>
 </template>
 
 <script>
