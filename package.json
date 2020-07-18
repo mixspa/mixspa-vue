@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "clean": "rm -rf ./lib",
-    "babel": "babel src --out-dir lib --copy-files",
+    "babel": "babel src --out-dir lib --copy-files --no-copy-ignored --ignore 'src/**/*.spec.js'",
     "babel:watch": "watch 'yarn babel' ./src",
     "build": "yarn clean && yarn babel",
     "lint": "eslint src",
